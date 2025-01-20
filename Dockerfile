@@ -1,11 +1,20 @@
-# Base Image
-FROM node:14-alpine
+# Use an official Node.js runtime as a parent image
+FROM node:16
 
-WORKDIR /usr/app
-# install dependencies
-COPY ./package.json ./
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
-COPY ./ ./
 
-# Default command
+# Copy the rest of your application
+COPY . .
+
+# Expose the application port
+EXPOSE 5000
+
+# Start the application
 CMD ["npm", "start"]
