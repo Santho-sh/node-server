@@ -1,9 +1,13 @@
 const express = require("express");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 5000;
 
 // Test endpoints
+app.get("/", (req, res) => {
+  res.json({ message: "Hello World from node app!" });
+});
+
 app.get("/api/test", (req, res) => {
   res.json({ message: "GET request successful", timestamp: new Date() });
 });
