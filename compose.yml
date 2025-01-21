@@ -1,10 +1,6 @@
 services:
   node-server:
     build:
-      context: .  # Builds the image from the Dockerfile in the current directory
-    image: node:16  # Ensuring you're using the same Node version as in the Dockerfile
+      context: .
     ports:
-      - "5000:5000"  # Exposing port 5000 to the host
-    volumes:
-      - .:/app  # Mount the current directory to the container
-    command: npm start  # Run the start command
+      - "5000:5000"
